@@ -214,6 +214,7 @@ function App() {
           )}
         </div>
       </div>
+      <div className=" border-b-2 border-black"></div>{" "}
       <div className=" border-b-2 border-black"></div>
       {/* -------------------------------------- STORIES------------------------- */}
       {/* <div>
