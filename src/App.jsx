@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const getstories = async (value) => {
       await axios
-        .get("http://localhost:3003/")
+        .get("https://movieapi-39c5.onrender.com ") //https://movieapi-39c5.onrender.com //http://localhost:3003
         .then((res) => {
           console.log(res.data);
           // setstory(res.data);
@@ -91,7 +91,7 @@ function App() {
   //----------------------------------------------------------------
   const poststory = async (value) => {
     await axios
-      .post("http://localhost:3003/", {
+      .post("https://movieapi-39c5.onrender.com ", {
         desc: textarea,
         moviename: movienameref?.current.value || "",
         writtenby: Directornamenameref?.current.value | "",
