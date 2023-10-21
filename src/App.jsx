@@ -266,9 +266,9 @@ function App() {
               <div className=" font-semibold text-orange-300 text-2xl">
                 {t.writer}{" "}
               </div>
-              {t.storyof?.map((storylines) => (
-                <div>{storylines} </div>
-              ))}{" "}
+              {t.storyof?.map((storylines) =>
+                storylines ? <div>{storylines} </div> : <br />
+              )}{" "}
             </div>
           </div>
         ))}
