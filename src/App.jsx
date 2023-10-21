@@ -13,10 +13,7 @@ function App() {
   const [movietowatch, setmovietowatch] = useState("");
   const [place, setplace] = useState("");
   const [movies, setmovies] = useState(["patan", "kgf2"]);
-  const [story, setstory] = useState([
-    " them to the heart of a dying star, where they find a cosmic library of knowledge. There, they learn the true nature of the rift and the dire consequences if it's not closed in time. They also uncover the Syndicate's leader, Dr. Victor Kronos, once a brilliant physicist, now driven mad by his obsession with harnessing the rift's power",
-    "The final confrontation with the Quantum Syndicate occurs in a distorted version of the Perimeter Institute, where a climactic battle unfolds. Amelia sacrifices herself to close the rift, while Samuel confronts Dr. Kronos. In a mind-bending duel of wits, Samuel outsmarts Kronos, sealing the rift and trapping the Syndicate in a timeless pocket dimension.Act 5:With the rift closed, Samuel returns to his world, but he is forever changed by his experiences. He realizes the delicate balance of the multiverse and the profound ",
-  ]);
+  const [story, setstory] = useState([]);
   const [theater, settheater] = useState([]);
   const places = ["bhimavaram", "tanuku", "hyderabad", "pune"];
   const place_theater = [
@@ -46,7 +43,7 @@ function App() {
         .get("http://localhost:3003/")
         .then((res) => {
           console.log(res.data);
-          setstory(res.data);
+          // setstory(res.data);
           res.data.map((datafromdb) => {
             // let storyobject = datafromdb.desc;
             // let story = storyobject?.split("\n");
@@ -231,29 +228,14 @@ function App() {
           )
         )}
       </div> */}
-      {/* ----------------------------------------------------- */}
-      <div>
-        {story.map((t) => (
-          <div className="border-2 border-gray-200 m-4 my-6 rounded p-4">
-            <div>
-              {/* <div className=" font-semibold text-2xl"> {t.moviename}</div> */}
-              {/* <div className=" font-semibold text-2xl">{t.writtenby} </div> */}
-              {t.storyof?.map((storylines) => (
-                <div>{storylines} </div>
-              ))}{" "}
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* --------------------------------------------SEND DIRECTOR AND NAME ---------------- */}
-      <div>
-        <input type="text" ref={movienameref} />
-      </div>
-      <div>
-        <input type="text" ref={Directornamenameref} />
-      </div>
       {/* --------------------------------------------SEND STORY TEXTAREA---------------- */}
       <div className="write_story flex gap-4 p-4 m-4  flex-col items-center justify-center">
+        <div>
+          <input type="text" ref={movienameref} />
+        </div>
+        <div>
+          <input type="text" ref={Directornamenameref} />
+        </div>
         <textarea
           placeholder="write your story here"
           onChange={(e) => {
@@ -270,6 +252,22 @@ function App() {
         </Button>
         {/* ----------------------------------------------------------- */}
       </div>{" "}
+      <div className=" border-black border-b-2"></div>
+      {/* ----------------------------------------------------- */}
+      <div>
+        {story.map((t) => (
+          <div className="border-2 border-gray-200 m-4 my-6 rounded p-4">
+            <div>
+              <div className=" font-semibold text-2xl"> {t.moviename}</div>
+              <div className=" font-semibold text-2xl">{t.writer} </div>
+              {t.storyof?.map((storylines) => (
+                <div>{storylines} </div>
+              ))}{" "}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* --------------------------------------------SEND DIRECTOR AND NAME ---------------- */}
       <div className="follow"></div>
       <div className="contact_us"></div>
       <div className=" mt-5"> </div>
