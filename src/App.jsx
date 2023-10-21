@@ -258,8 +258,13 @@ function App() {
         {story.map((t) => (
           <div className="border-2 border-gray-200 m-4 my-6 rounded p-4">
             <div>
-              <div className=" font-semibold text-2xl"> {t.moviename}</div>
-              <div className=" font-semibold text-2xl">{t.writer} </div>
+              <div className=" font-semibold text-orange-400 text-2xl">
+                {" "}
+                {t.moviename}
+              </div>
+              <div className=" font-semibold text-orange-300 text-2xl">
+                {t.writer}{" "}
+              </div>
               {t.storyof?.map((storylines) => (
                 <div>{storylines} </div>
               ))}{" "}
