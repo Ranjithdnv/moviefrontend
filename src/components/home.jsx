@@ -453,12 +453,6 @@ function Home() {
       <div className="director_page"></div>
       <div className="music_page"></div>
       <div className="heroinr_page"></div>
-      <div>
-        <Moviestory story={presentmoviestory} />
-      </div>
-      <div>
-        <Link to="./moviestory"> moviestory</Link>
-      </div>
     </div>
   );
 }
