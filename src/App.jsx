@@ -20,7 +20,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={Contexts.us.email ? <Home /> : <Login />} />
+        {/* <Route path="/" element={Contexts.us.email ? <Home /> : <Login />} />  */}
+        <Route path="/" element={<Home />} />
         <Route path="/moviestory" element={<Moviestory />} />
         <Route path="/login" element={<Login />} />{" "}
         <Route path="/heroes" element={<Hero />} />{" "}
