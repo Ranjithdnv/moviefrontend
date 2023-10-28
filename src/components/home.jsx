@@ -1,15 +1,19 @@
 import React from "react";
 import axios from "axios";
 import "../App.css";
+import Moviestory from "./moviestory";
 import { Button } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { CountContext } from "../context";
 // import terms from "./components/terms";
 // import Create from "./components/create";
 // import Login from "./components/login";
 // import Signup from "./components/signup";
 // import Post from "./components/post";
 import { useContext } from "react";
+// import { CountContext } from "../context";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
@@ -18,10 +22,12 @@ import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 // import Contact from "./components/contact";
 // import Home from "./components/home";
 function Home() {
+  const Contexts = useContext(CountContext);
   const movienameref = useRef("");
   const Directornamenameref = useRef("");
   const [theatertowatch, settheatertowatch] = useState("");
   const [story_db, setstory_db] = useState([]);
+  const [presentmoviestory, setpresentmoviestory] = useState([]);
   const [textarea, settextarea] = useState("");
   const [sendmovie, setsendmovie] = useState(false);
   const [seachmovie, setseachmovie] = useState(false);
@@ -103,6 +109,13 @@ function Home() {
       }
     });
   };
+  const navi = useNavigate();
+  const setpresentmoviestoryfunction = (value) => {
+    setpresentmoviestory(value);
+    Contexts.user(value);
+    navi("/moviestory");
+  };
+
   //----------------------------------------------------------------
   const poststory = async (value) => {
     await axios
@@ -345,24 +358,35 @@ function Home() {
       )}
       <div className=" border-black border-b-2  "></div>
       {/* ----------------------------------------------------- */}
-      <div className=" text-center  my-4  text-violet-400  font-semibold text-lg">
+      <div className=" text-center  my-4  text-violet-400  font-semibold text-2xl">
         Trending Movies
       </div>
       <div className="newbox   ">
         {story?.map((t) => (
-          <div className=" boxcl  ">
+          <div
+            onClick={() => {
+              setpresentmoviestoryfunction(t);
+            }}
+            className=" boxcl  "
+          >
             {" "}
             <div className=" fixedlines  border-2  border-gray-200 m-4 my-6  bg-white  rounded px-4">
               <div>
-                <div className=" font-semibold text-orange-400 text-2xl">
+                <div className=" font-semibold text-violet-800 text-left  uppercase text-2xl">
                   {" "}
-                  {t.moviename}
+                  <span className=" text-pink-600"> MOVIE :</span> {t.moviename}
                 </div>
-                <div className=" font-semibold text-orange-300 text-2xl">
-                  {t.writer}{" "}
+                <div className=" font-semibold text-violet-600  text-left  uppercase mb-2 text-2xl">
+                  <span className=" text-pink-500"> DIRECTOR :</span> {t.writer}{" "}
                 </div>
                 {t.storyof?.map((storylines) =>
-                  storylines ? <div>{storylines} </div> : <br />
+                  storylines ? (
+                    <div className=" text-left w-full bg-black   rounded p-2 text-gray-500">
+                      {storylines}{" "}
+                    </div>
+                  ) : (
+                    <br />
+                  )
                 )}{" "}
               </div>
             </div>
@@ -392,22 +416,28 @@ function Home() {
         </div>
       </div> */}
       {/* ----------------------------------------------------trending stories above */}
-      <div className=" text-center    my-4  text-violet-400   font-semibold text-lg">
-        all Movies
+      <div className=" text-center    my-4  text-violet-400   font-semibold text-2xl">
+        All Movies
       </div>
       <div className=" bg-slate-800">
         {story.map((t) => (
           <div className=" fixedlines border-2 border-gray-200 m-4 my-6 bg-white  rounded px-4">
             <div>
-              <div className=" font-semibold text-orange-400 text-2xl">
+              <div className=" font-semibold text-orange-600 text-left  uppercase  text-2xl">
                 {" "}
-                {t.moviename}
+                <span className=" text-pink-600"> MOVIE :</span> {t.moviename}
               </div>
-              <div className=" font-semibold text-orange-300 text-2xl">
-                {t.writer}{" "}
+              <div className=" font-semibold text-orange-500 text-left  uppercase  text-2xl">
+                <span className=" text-pink-500"> DIRECTOR :</span> {t.writer}{" "}
               </div>
               {t.storyof?.map((storylines) =>
-                storylines ? <div>{storylines} </div> : <br />
+                storylines ? (
+                  <div className=" text-left    rounded p-2 text-gray-700">
+                    {storylines}{" "}
+                  </div>
+                ) : (
+                  <br />
+                )
               )}{" "}
             </div>
           </div>
@@ -423,6 +453,12 @@ function Home() {
       <div className="director_page"></div>
       <div className="music_page"></div>
       <div className="heroinr_page"></div>
+      <div>
+        <Moviestory story={presentmoviestory} />
+      </div>
+      <div>
+        <Link to="./moviestory"> moviestory</Link>
+      </div>
     </div>
   );
 }

@@ -124,7 +124,7 @@
   /* width: 400px; */
   box-sizing: content-box;
   overflow-y: scroll;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .boxcl {
   /* flex: 1; */

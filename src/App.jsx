@@ -5,14 +5,16 @@ import { Button } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/home";
+import Moviestory from "./components/moviestory";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/moviestory" element={<Moviestory />} />
         {/* <Route path="/" element={Contexts.us.username ? <Home /> : <Login />} />
-      <Route path="/create" element={<Create />} />
+       <Route path="/create" element={<Create />} />
       <Route path="/messagechat" element={<Messagechat />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/chatwithpost" element={<Post />} />
