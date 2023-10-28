@@ -4,15 +4,21 @@ import axios from "axios";
 import { Button } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import Login from "./components/login";
 import Home from "./components/home";
+import { useContext } from "react";
 import Moviestory from "./components/moviestory";
+import { CountContext } from "./context";
 
 function App() {
+  const Contexts = useContext(CountContext);
+  console.log(Contexts.us);
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={Contexts.us.email ? <Home /> : <Login />} />
         <Route path="/moviestory" element={<Moviestory />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/" element={Contexts.us.username ? <Home /> : <Login />} />
        <Route path="/create" element={<Create />} />
       <Route path="/messagechat" element={<Messagechat />} />

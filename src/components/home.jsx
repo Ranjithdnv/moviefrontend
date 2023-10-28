@@ -159,7 +159,10 @@ function Home() {
         </div>
         <div className="accountlogo h-8 w-8 ">
           {" "}
-          <AccountCircleOutlinedIcon className="accountlogo h-8 w-8 " />
+          <Link to="./login">
+            {" "}
+            <AccountCircleOutlinedIcon className="accountlogo h-8 w-8 " />{" "}
+          </Link>
         </div>
       </div>
       <div className="ads"></div>
