@@ -1,6 +1,7 @@
-.App {
+/* .App {
   text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -35,9 +36,103 @@
   to {
     transform: rotate(360deg);
   }
+} */
+* {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
 }
 .textarea {
   height: 50vh;
   width: 88%;
   border-radius: 1rem;
+}
+.fixedlines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  /* padding: 1rem; */
+  line-height: 20px;
+}
+.fixedliness {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+
+  /* width: 20rem; */
+  /* line-height: 20px; */
+}
+.accountlogo {
+  height: 3rem !important;
+  width: 3rem !important;
+  background-image: linear-gradient(to right, violet, rgb(197, 47, 247));
+  background-clip: text;
+  color: rgb(230, 31, 220);
+}
+
+.searchicon {
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+  color: rgb(230, 31, 220);
+  background-image: linear-gradient(to right, violet, rgb(197, 47, 247));
+  background-clip: text;
+}
+.sendicon {
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+  background-image: linear-gradient(to right, violet, rgb(197, 47, 247));
+  background-clip: text;
+  color: rgb(230, 31, 220);
+}
+
+.logoimage {
+  height: 3rem;
+  width: 100%;
+  /* width: 100px; */
+  background-size: cover;
+  object-fit: cover;
+}
+.trendingstories {
+  flex-basis: 20rem;
+  min-width: 400px;
+  height: 20rem;
+  background-color: rgb(188, 179, 179);
+}
+
+.trending {
+  /* flex-wrap: nowrap; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  /* height: 20rem; */
+  overflow: hidden;
+  width: 100%;
+}
+.newbox {
+  /* box-sizing: border-box; */
+  /* justify-content: center;
+  align-items: center; */
+  display: flex;
+  /* flex-direction: column; */
+
+  /* width: 400px; */
+  box-sizing: content-box;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
+.boxcl {
+  /* flex: 1; */
+  box-sizing: border-box;
+  /* padding: 1rem; */
+  min-height: 100px;
+  min-width: 400px;
+  background-color: rgb(25, 26, 26);
+  /* background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(49, 48, 49));
+  background-clip: text; */
 }
