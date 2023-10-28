@@ -17,15 +17,16 @@ function Login({ story }) {
   console.log(Contexts?.us.storyof);
 
   return (
-    <div className=" flex justify-center items-center">
+    <div className=" flex justify-center h-screen items-center">
       {/* story
       {movie_story_present.map((storyline) => (
         <div>{storyline} </div>
       ))} */}
 
-      <div className=" h-32 ">
+      <div className="  rounded justify-center items-center flex  p-2 bg-blue-500">
         {" "}
         <GoogleLogin
+          className=" text-xl"
           onSuccess={(credentialResponse) => {
             var credentials = jwtDecode(credentialResponse.credential);
             console.log(credentials);

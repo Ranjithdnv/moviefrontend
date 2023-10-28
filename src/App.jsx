@@ -8,6 +8,10 @@ import Login from "./components/login";
 import Home from "./components/home";
 import { useContext } from "react";
 import Moviestory from "./components/moviestory";
+import Director from "./components/directorpage";
+import Hero from "./components/heropage";
+import Heroine from "./components/heroine";
+import Musician from "./components/musicdirector";
 import { CountContext } from "./context";
 
 function App() {
@@ -18,7 +22,11 @@ function App() {
       <Routes>
         <Route path="/" element={Contexts.us.email ? <Home /> : <Login />} />
         <Route path="/moviestory" element={<Moviestory />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />{" "}
+        <Route path="/heroes" element={<Hero />} />{" "}
+        <Route path="/heroines" element={<Heroine />} />{" "}
+        <Route path="/directors" element={<Director />} />{" "}
+        <Route path="/musicians" element={<Musician />} />
         {/* <Route path="/" element={Contexts.us.username ? <Home /> : <Login />} />
        <Route path="/create" element={<Create />} />
       <Route path="/messagechat" element={<Messagechat />} />

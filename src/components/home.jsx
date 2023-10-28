@@ -28,6 +28,7 @@ function Home() {
   const [theatertowatch, settheatertowatch] = useState("");
   const [story_db, setstory_db] = useState([]);
   const [presentmoviestory, setpresentmoviestory] = useState([]);
+  const [searchbox, setsearchbox] = useState("");
   const [textarea, settextarea] = useState("");
   const [sendmovie, setsendmovie] = useState(false);
   const [seachmovie, setseachmovie] = useState(false);
@@ -167,7 +168,7 @@ function Home() {
       </div>
       <div className="ads"></div>
       <div className="location flex flex-col py-4   justify-center items-center bg-black">
-        <div className=" flex   gap-4   w-full  justify-around">
+        <div className=" flex   gap-4   w-full  items-center justify-around">
           <div
             className=" w-2/4 align-middle text-center "
             onClick={() => {
@@ -176,7 +177,33 @@ function Home() {
           >
             <SearchOutlinedIcon className="searchicon h-8 w-8 " />
           </div>
+          <div>
+            <input
+              placeholder="search place"
+              onChange={
+                (e) => {
+                  setsearchbox(e.target.value);
+                }
+                //(e) => {
+                //setplace(e.target.value)
+              }
+              className=" rounded opacity-70 text-pink-500  bg-transparent placeholder:text-pink-500 text-center  m-1 p-2 pb-2 mr-6  font-semibold  border-2 border-white"
+              list="searchbox"
+              type="text"
+            />
 
+            <datalist id="searchbox">
+              {/* ---------------------------------------change later down  ------------------------------- */}
+              {movies.map((place, index) => {
+                return (
+                  <div key={index}>
+                    {index}
+                    <option value={place} />
+                  </div>
+                );
+              })}
+            </datalist>
+          </div>
           <div
             className=" w-2/4 align-middle  text-center"
             onClick={() => {
@@ -448,14 +475,36 @@ function Home() {
       </div>
       {/* --------------------------------------------SEND DIRECTOR AND NAME ---------------- */}
       <div className="follow"></div>
-      <div className="contact_us"></div>
-      <div className=" mt-5"> </div>
+      {/* <div className=" mt-5"> </div> */}
       {/* <div>{story_db.map((t) => (t ? <div>{t} </div> : <br />))}</div> */}
       {/* -----------------------------------------------look above -------------------------------------- */}
-      <div className="hero_page"></div>
-      <div className="director_page"></div>
-      <div className="music_page"></div>
-      <div className="heroinr_page"></div>
+      <div className=" bg-black flex justify-center flex-col gap-4  items-center  box-content  py-4">
+        <Link className="w-[90%] " to="heroes">
+          {" "}
+          <div className="hero_page w-[90%] mx-4 text-blue-400 font-bold text-lg   border-2 rounded p-4  border-pink-500">
+            Vote a hero
+          </div>{" "}
+        </Link>
+        <Link className="w-[90%] " to="directors">
+          {" "}
+          <div className="director_page w-[90%] mx-4 text-blue-400 font-bold text-lg   rounded p-4 border-2 border-pink-500">
+            Vote a director
+          </div>
+        </Link>
+        <Link className="w-[90%] " to="musicians">
+          {" "}
+          <div className="music_page w-[90%] rounded mx-4    text-blue-400 font-bold text-lg  p-4 border-2 border-pink-500">
+            Vote a music director
+          </div>
+        </Link>
+        <Link className="w-[90%] " to="heroines">
+          {" "}
+          <div className="heroine_page w-[90%] rounded p-4 mx-4 text-blue-400 font-bold text-lg   border-2 border-pink-500">
+            {" "}
+            Vote a heroine
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }

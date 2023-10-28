@@ -116,8 +116,8 @@
 }
 .newbox {
   /* box-sizing: border-box; */
-  /* justify-content: center;
-  align-items: center; */
+  /* justify-content: center; */
+  align-items: center;
   display: flex;
   /* flex-direction: column; */
 
